@@ -6,7 +6,6 @@
       "row-4":"Choose day and hour window.",
       "row-5":"Your Underlying data."
     },
-
   "body":
     {
       "row-1": "...it's a calculator for comparing things; in this case, the ballots recorded for each of the two 2020 US Presidential candidates.",
