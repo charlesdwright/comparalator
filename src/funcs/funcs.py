@@ -5,12 +5,10 @@ import ast
 dataHeaders={'Trump':'trumpd','Trump Absentee':'ab_trumpd','Biden':'bidenj','Biden Absentee':'ab_bidenj'}
 operation={'/':'Ratio (:1)','-':'Difference','+':'Sum'}
 
-#theFile=r'/Users/cw/Dev/Misc Projects/Vote Comparator/src/content/info.txt'
 theFile=r'./content/info.txt'
 with open(theFile) as response:
     generalInfo = ast.literal_eval(response.read())
 
-#theFile=r'/Users/cw/Dev/Misc Projects/Vote Comparator/src/data/counties.txt'
 theFile=r'./data/counties.txt'
 with open(theFile) as response:
     counties = json.load(response)

@@ -56,31 +56,6 @@ def dropdown(id,value):
                 )
     return html.Div([theDropdown], className='dropdown')
 
-
-# dropdown_0= html.Div(
-#     [
-#     dcc.Dropdown(
-#             id='operand_0',
-#             className='dropdown',
-#             options=[
-#                 {"label": key, "value": key} for key in dataHeaders #iris.columns
-#             ],
-#             value="Biden"
-#         )
-#     ], className="dropdown")
-#
-# dropdown_1= html.Div(
-#     [
-#     dcc.Dropdown(
-#         id='operand_1',
-#         className='dropdown',
-#         options=[
-#             {"label": key, "value": key} for key in dataHeaders #iris.columns
-#         ],
-#         value="Trump"
-#     )
-#      ], className="dropdown")
-
 calc_buttons = html.Div(
     [
     dbc.RadioItems(
@@ -145,89 +120,51 @@ content_row_3 = dbc.Row ([
     ([
         html.Div
         (
+        dbc.Row(
+            [
+            dbc.Col(
+                [
+                dcc.Loading(
+                    id="loading-1",
+                    type="default",
+                    children=[
+                        html.Div(className ='div-graph', children=[
+                            dcc.Graph(id="graph"),
+                        ]),
+                    ],
+                ),
+                ], width=11),
 
-                                dbc.Row(
-                                    [
-                                    dbc.Col(
-                                        [
-                                        dcc.Loading(
-                                            id="loading-1",
-                                            type="default",
-                                            children=[
-                                                html.Div(className ='div-graph', children=[
-                                                    dcc.Graph(id="graph"),
-                                                ]),
-                                            ],
-                                        ),
-                                        ], width=11),
-
-                                        dbc.Col(
-                                            [
-                                            html.Div(
-                                               className="div-range-slider",
-                                               children=
-                                                    [
-                                                        dcc.RangeSlider(
-                                                        className="range-slider",
-                                                        id='range-slider',
-                                                        vertical=True,
-                                                        min=0,
-                                                        max=1,
-                                                        step=0.01,# None,# 10,
-                                                        value=[0, 1],
-                                                        verticalHeight=282,
-                                                        tooltip = { 'always_visible': False },
-                                                        allowCross=False,
-                                                        persistence=True,
-                                                        persistence_type='local'
-                                                        ),
-                                                    ],
-                                                ),
-                                            ], className="div-col-range-slider", width=1),
-                                        ]
-                                    ),
-            # [
-            # dbc.Col(
-            # [
-            # dcc.Loading(
-            #     id="loading-1",
-            #     type="default",
-            #     children=[
-            #         html.Div(className ='div-graph', children=[
-            #             dcc.Graph(id="graph"),
-            #         ]),
-            #     ],
-            # ),
-            # ], width=11),
-            #
-            # dbc.Col(
-            #     [
-            #     html.Div(
-            #        className="div-range-slider",
-            #        children=
-            #             [
-            #                 dcc.RangeSlider(
-            #                 className="range-slider",
-            #                 id='range-slider',
-            #                 vertical=True,
-            #                 min=0,
-            #                 max=1,
-            #                 step=0.01,# None,# 10,
-            #                 value=[0, 1],
-            #                 verticalHeight=282,
-            #                 tooltip = { 'always_visible': False },
-            #                 allowCross=False,
-            #                 persistence=True,
-            #                 persistence_type='local'
-            #                 ),
-            #             ],
-            #         ),
-            #     ], width=1)
-            # ]
+                dbc.Col(
+                    [
+                    html.Div(
+                       className="div-range-slider",
+                       children=
+                            [
+                                dcc.RangeSlider(
+                                className="range-slider",
+                                id='range-slider',
+                                vertical=True,
+                                min=0,
+                                max=1,
+                                step=0.01,# None,# 10,
+                                value=[0, 1],
+                                verticalHeight=282,
+                                tooltip = { 'always_visible': False },
+                                allowCross=False,
+                                persistence=True,
+                                persistence_type='local'
+                                ),
+                            ],
+                        ),
+                    ], className="div-col-range-slider", width=1),
+                ]
+            ),
         )
 
     ],
-    className="col-content")
+    className="col-content",
+    id="content-row-3")
 
 ],
 className="div-row-x-content")

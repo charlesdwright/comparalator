@@ -13,8 +13,7 @@ import pandas as pd
 #@cache.memoize(timeout=TIMEOUT)
 
 def df():
-#    theFile =r'/Users/cw/Dev/Misc Projects/Vote Comparator/src/data/nov3_time_series_sequential.json'
-    theFile =r'./data/nov3_time_series_sequential.json'
+    theFile =r'./data/nov3_time_series_sequential_mini.json'
     df=pd.read_json (theFile, dtype={'fips': str})
 
     df['layer']=pd.to_numeric(df.layer, errors="coerce")

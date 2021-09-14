@@ -28,7 +28,8 @@ df=df()
 
 dfRange=[0,1]
 range_state={}
-FA=r'./assets/css/font-awesome-4.7.0/css/font-awesome.min.css'
+#FA=r'./assets/css/font-awesome-4.7.0/css/font-awesome.min.css'
+FA=r'./assets/css/font-awesome.min.css'
 
 app = dash.Dash(external_stylesheets=[dbc.themes.CYBORG, FA])
 
@@ -58,7 +59,6 @@ dbc.Container\
     #,prevent_initial_call=True
     )
 def display_animated_graph(operand_0, operator, operand_1, range, day, hour):
-
     if (not operand_0 or not operand_1):
         print("operand is nothing")
         #do nothing
@@ -122,7 +122,6 @@ def display_animated_graph(operand_0, operator, operand_1, range, day, hour):
         color_continuous_scale=getColor(operand_0,operand_1),
         scope="usa",
         )
-
     toc = time.perf_counter()
 
     data_table=updateDataTable(filtered_df,operation[operator])
@@ -145,7 +144,6 @@ def display_animated_graph(operand_0, operator, operand_1, range, day, hour):
     print(f"Completed update function in {toc - tic:0.4f} seconds")
 
     return fig, data_table[0], data_table[1], dfRange #animations[s]
-
 
 #================ end good bad & ugly ====================
 

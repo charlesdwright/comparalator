@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-  #  ports:
-  #    - "5000:5000"
+    ports:
+     - "5000:8051"
   #  volumes:
   #    - .:/code
