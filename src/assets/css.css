@@ -7,6 +7,17 @@
     font-size: 1px;
     line-height: 1;
 }
+.theModal{
+
+background-color: white
+
+}
+
+.modalBody{
+
+font-size: 17px
+
+}
 
 /* .div-graph {
   display: none;
@@ -15,6 +26,15 @@
 #content-row-3{
   display:none
 } */
+.abs_card_row {
+  padding-left: 75px;
+}
+.abs_ratio_card{
+  padding: 0 11px 0 11px
+}
+.card-text{
+  font-size: 14px
+}
 
 .row2-buttons {
   width: 25%
@@ -44,6 +64,7 @@ border-radius: 3px;
 .custom-control-label.btn.btn-secondary.active {
 
     font-weight: bold;
+    background-color: #555
 }
 
   .container {
@@ -57,10 +78,24 @@ border-radius: 3px;
     padding-top: 17px;
     display: inline-block;
 }
+.fa-question-circle {
+   content: "\f05a";
+   /* color: #96dbfa; */
+   padding-left: 5px;
+   padding-top: 2px;
+   display: inline-block;
+}
 
 .col-info {
-  height:
-  padding: 3px 0 9px 0;
+  height:;
+  padding: 3px 9px 9px 0;
+  text-align: right;
+  height: 7px;
+}
+
+.col-detail {
+  height:;
+  padding: 13px 4px 0px 0;
   text-align: right;
   height: 7px;
 }
@@ -118,9 +153,7 @@ max-width: 150%
 
   .r2-col-content {
     text-align: center;
-    padding-top: 15px;
-    padding-right:0px;
-    padding: 15px 0 0 15px;
+    padding: 1px 0 0 15px;
   }
 
   .col-content {
@@ -195,12 +228,12 @@ max-width: 150%
   .Select .Select-control {
     background-color: #555; /*#424242; /*red; /*#fff;*/
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     color: #fff; /*#333;*/
     display: table;
     border-spacing: 0;
     border-collapse: separate;
-    height: 36px;
+    height: 38px;
     overflow: hidden;
   }
 
@@ -245,7 +278,7 @@ table {
 }
 
 .div-label {
-    padding: 2px 11px 1px 12px;
+    padding: 2px 11px 3px 12px;
     font-size: 14px;
     color: #fff;
     border: 1px #adafae solid;

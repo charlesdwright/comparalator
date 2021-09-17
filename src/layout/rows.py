@@ -5,17 +5,115 @@ import dash_bootstrap_components as dbc
 import dash_table
 from dash_table.Format import Format, Group, Scheme
 
+from content.content import *
 from funcs.funcs import *
 from data.data import df
 df=df()
 
+from dash.dependencies import Input, Output, State
+
+
+modalHeader=generalInfo['headers']['modal-1'] #html.Div("How this project came to be.")
+modalBody = html.Div([
+
+            #top_text,
+            dbc.ListGroupItemText(generalInfo['body']['modal-1']["p1"]),
+            dbc.ListGroupItemText(generalInfo['body']['modal-1']["p2"]),
+            cards,
+            html.Br(),
+            dbc.ListGroupItemText(generalInfo['body']['modal-1']["p3"]),
+            dbc.ListGroupItemText(generalInfo['body']['modal-1']["p4"])
+
+])
+
+
+#-------------------- modal ------------------------
+def theModal(row, size):
+    modal = html.Div(
+        [
+            #dbc.Button("Open", id="open-centered-"+row),
+            dbc.Modal(
+                [
+                    dbc.ModalHeader(modalHeader),
+                    dbc.ModalBody([modalBody],className="modalBody"),
+                    dbc.ModalFooter(
+                        dbc.Button(
+                            "Close",
+                            id="close-centered-" + row,
+                            className="ml-auto",
+                            n_clicks=0,
+                        )
+                    )
+                ],
+                id="modal-centered-"+row,
+                centered=True,
+                is_open=False,
+                size= size,
+            )
+        ],className="theModal"
+    )
+    return modal
+
+
+#-------------------- end modal ------------------------
+#-------------------- card ------------------------
+# card = dbc.Card(
+#     [
+#         dbc.CardHeader("This is the header"),
+#         dbc.CardBody(
+#             [
+#                 html.H4("Card title", className="card-title"),
+#                 html.P("This is some card text", className="card-text"),
+#             ]
+#         ),
+#         dbc.CardFooter("This is the footer"),
+#     ],
+#     style={"width": "18rem"},
+# )
+#-------------------- end card ------------------------
+#-------------------- tooltip ------------------------
+# def theToolTip(row):
+#     tooltip = html.Div(
+#         [
+#             html.P(
+#                 [
+#                     "I wonder what ",
+#                     html.Span(
+#                         "floccinaucinihilipilification",
+#                         id="tooltip-target-"+row,
+#                         style={"textDecoration": "underline", "cursor": "pointer"},
+#                     ),
+#                     " means?",
+#                 ]
+#             ),
+#             dbc.Tooltip(
+#                 "Noun: rare, "
+#                 "the action or habit of estimating something as worthless.",
+#                 target="tooltip-target-"+row,
+#             ),
+#         ]
+#     )
+#     return tooltip
+
+#-------------------- end tooltip ------------------------
+
 def popover_content(row):
     return [
         dbc.PopoverHeader(generalInfo['headers'][row]),
-        dbc.PopoverBody(generalInfo['body'][row]),
+        dbc.PopoverBody([
+            dbc.ListGroupItemText(generalInfo['body'][row]["p1"]),
+            dbc.ListGroupItemText(generalInfo['body'][row]["p2"]),
+            dbc.ListGroupItemText(generalInfo['body'][row]["p3"]),
+            # dbc.ListGroupItemText(theToolTip(row)),
+            # theModal(row)
+        ]),
     ]
 
 def info_row(row, size):
+    detailRow =None
+    if (row=="row-1"):
+        detailRow=detail_row(row,"lg")
+
     theRow = dbc.Row(
         [
         dbc.Col
@@ -24,7 +122,7 @@ def info_row(row, size):
             ([
                 html.I
                 (
-                    className="fa fa-info-circle fa-" + size,#classname,
+                    className="fa fa-info-circle fa-" + size + " fa-3dicon",#classname,
                     id="info-" + row,#idd,
                     **{'aria-hidden': 'true'},
                     children=None
@@ -37,11 +135,43 @@ def info_row(row, size):
                     target="info-" + row ,
                     trigger="hover",
                     className="pop-info"
-                )
+                ),
+
+                detailRow
+
             ])
         ],className="col-info")
         ],
         className="div-row-info")
+
+    return theRow
+
+
+def detail_row(row, size):
+    theRow = dbc.Row(
+        [
+        dbc.Col
+        ([
+            html.Div
+            ([
+                dbc.NavLink(
+                    html.I
+                    (
+                        className="fa fa-question-circle fa-" + size,#classname,
+                        id="detail-" + row,#idd,
+                        **{'aria-hidden': 'true'},
+                        children=None
+                    ),
+                    id="open-centered-"+row,
+                    n_clicks=0
+                ),
+
+                theModal(row, size)
+
+            ])
+        ],className="col-detail")
+        ],
+        className="div-row-detail")
 
     return theRow
 
@@ -82,6 +212,7 @@ content_row_1 = dbc.Row ([
         (
             [
                 html.Label("2020 US Election Vote Compar-A-Lator",className='div-label',id='div-title-label'),
+
             ]
         )
 

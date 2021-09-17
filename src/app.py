@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 import math
@@ -31,7 +32,7 @@ range_state={}
 #FA=r'./assets/css/font-awesome-4.7.0/css/font-awesome.min.css'
 FA=r'./assets/css/font-awesome.min.css'
 
-app = dash.Dash(external_stylesheets=[dbc.themes.CYBORG, FA])
+app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP, FA])
 
 app.layout = \
 dbc.Container\
@@ -42,7 +43,23 @@ dbc.Container\
      row_3,
      row_4,
      row_5,
+     #modal
 ])
+
+
+
+
+
+
+# @app.callback(
+#     Output("modal-centered", "is_open"),
+#     [Input("open-centered", "n_clicks"), Input("close-centered", "n_clicks")],
+#     [State("modal-centered", "is_open")],
+# )
+# def toggle_modal(n1, n2, is_open):
+#     if n1 or n2:
+#         return not is_open
+#     return is_open
 
 #================ good bad & ugly ====================
 @app.callback(
@@ -154,7 +171,18 @@ app.callback(Output("operand_0", "options"), [Input("operand_1", "value")])(
 app.callback(Output("operand_1", "options"), [Input("operand_0", "value")])(
     filter_options
 )
+#
+app.callback(
+    Output("modal-centered-row-1", "is_open"),
+    [Input("open-centered-row-1", "n_clicks"), Input("close-centered-row-1", "n_clicks")],
+    [State("modal-centered-row-1", "is_open")])(
+    toggle_modal
+)
+
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True, port=8051, host='0.0.0.0')
+        # Bind to PORT if defined, otherwise default to 5000.
+    port = int(os.environ.get('PORT', 8051))
+    app.run_server(debug=True,host='0.0.0.0', port=port)
+#    app.run_server(debug=False, port=8051, host='0.0.0.0')

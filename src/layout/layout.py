@@ -4,10 +4,10 @@ import dash_bootstrap_components as dbc
 from funcs.funcs import *
 from data.data import df
 from layout.rows import *
+from content.content import *
 
 import dash_table
 from dash_table.Format import Format, Group, Scheme
-
 
 row_1 = html.Div([
             dbc.Row
@@ -21,7 +21,7 @@ row_1 = html.Div([
                         children=
                         [
                             info_row("row-1","2x"),
-                            content_row_1
+                            content_row_1,
                         ]
                     )
                 )

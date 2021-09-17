@@ -13,6 +13,10 @@ theFile=r'./data/counties.txt'
 with open(theFile) as response:
     counties = json.load(response)
 
+def toggle_modal(n1, n2, is_open):
+    if n1 or n2:
+        return not is_open
+    return is_open
 
 # make sure that x and y values can't be the same variable
 def filter_options(v):
