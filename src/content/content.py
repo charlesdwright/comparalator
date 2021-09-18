@@ -4,6 +4,8 @@ import dash_html_components as html
 import base64
 
 
+from funcs.funcs import generalInfo
+
 image_filename = './content/absentee-ratios.png'
 encoded_image = base64.b64encode(open(image_filename, 'rb').read())
 theImgSrc='data:image/png;base64,{}'.format(encoded_image.decode())
@@ -68,3 +70,46 @@ modal_1 = html.Div([
     abs_ratio_card,
     botton_text
 ])
+
+
+#======= popovers ========
+
+def blah():
+
+    x= html.Div([
+        html.P("Speaking strictly of absentee ballots, looks like there was some curious behavior on both sides, though quite disproportionately."),
+        html.P("To gain some insight into this, we’ve done a superficial analysis as follows: Filtered by precincts where the ratio of absentee votes favored Biden by 7:1 or more over Trump."),
+        html.P("In these locations:"),
+        html.Li("Biden netted a total of 679,214 absentee votes."),
+        html.Li("The Biden-Trump ratio was as high as 16.5:1 (netting Biden 440,219 votes)"),
+        html.Br(),
+        ])
+    return x
+
+
+
+def popover(row):
+    p= dbc.Popover(
+        popover_content(row),
+        id="pop-" + row,
+        target="info-" + row ,
+        trigger="hover",
+        className="pop-info"
+    )
+
+    return p
+
+#put this on a card or ?
+def popover_content(row):
+    return [
+        dbc.PopoverHeader(generalInfo['headers'][row]),
+        #blah(),
+        dbc.PopoverBody([
+            dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p1"])),
+            dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p2"])),
+            dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p3"])),
+            dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p4"])),
+            # dbc.ListGroupItemText(theToolTip(row)),
+            # theModal(row)
+        ]),
+    ]

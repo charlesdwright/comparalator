@@ -33,7 +33,7 @@ def df():
     # concat the list into dataframe
     df_concat = pd.concat(chunk_list)
 
-    #print(df_concat.head())
+    print(df_concat.head())
 
     df_concat['layer']=pd.to_numeric(df_concat.layer, errors="coerce")
 

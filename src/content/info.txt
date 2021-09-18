@@ -12,7 +12,7 @@
   "body":
     {
       "row-1":{"p1":"Over 200,000 ballots from a ‘homeless encampment’ in the Northeast!",
-                "p2":"A half-dozen “pop-up” districts for which no mapping data exists (yet - we are solving that problem) and all of which heavily favored the same candidate (229,052 to 13,300 or 17.22:1)",
+                "p2":"Nearly 250,000 ballots from “pop-up” districts for which no mapping data exists (yet - we are solving that problem)",
                 "p3":"Four districts where absentee votes for one candidate exceeded 10 times those of the other.",
                 "p4":"See how your favorite stacks up!  For a little more detail, with an example, click that little blue '?' below."
                 },
@@ -36,9 +36,9 @@
               "p3":"",
               "p4":""
               },
-      "modal-1":{"p1":"Curious about the impact of mail-in ballots on the election results, we obtained the NYT Election Results dataset and set about calculating the ratio of absentee votes for Biden/Trump to absentee votes for Trump.",
+      "modal-1":{"p1":"Curious about the impact of mail-in ballots on the election results, we obtained the NYT Election Results dataset and set about calculating the ratio of absentee votes for Biden to absentee votes for Trump.",
                   "p2":"The results of that early work are shown below.",
-                  "p3":"We found the results to be interesting, so we built the Compar-A-Lator to simplify the process of discovering such relationships in the results.",
+                  "p3":"We found the results to be interesting, so we built the Compar-A-Lator to simplify the process of discovering such relationships.",
                   "p4":"It's our hope that this tool inspires others to examine the data more closely.",
                 }
 

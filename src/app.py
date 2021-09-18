@@ -27,6 +27,8 @@ import random
 
 df=df()
 
+fig = px.choropleth()
+
 dfRange=[0,1]
 range_state={}
 #FA=r'./assets/css/font-awesome-4.7.0/css/font-awesome.min.css'
@@ -84,10 +86,18 @@ def display_animated_graph(operand_0, operator, operand_1, range, day, hour):
     print("dfrange after " + str(dfRange) + "  " + str(range))
     print("+++++++++++++++++")
 
-    filtered_df = df[(df.day == day)&(df.hour == hour)]
+    try:
+        filtered_df = df[(df.day == day)&(df.hour == hour)]
+        filtered_df=filtered_df.groupby(['location','day','hour']).agg({'fips':'last','layer':'max','trumpd':'last','ab_trumpd':'last','bidenj':'last','ab_bidenj':'last'})
+        filtered_df=filtered_df.reset_index()
+        print("ok")
+    except:
+        print("nope")
+        filtered_df['result']=-1
 
-    filtered_df=filtered_df.groupby(['location','day','hour']).agg({'fips':'last','layer':'max','trumpd':'last','ab_trumpd':'last','bidenj':'last','ab_bidenj':'last'})
-    filtered_df=filtered_df.reset_index()
+    if filtered_df['fips'].empty:
+        filtered_df=df.head(1)
+        filtered_df['fips']=''
 
     try:
         filtered_df['result']=eval('filtered_df["' + dataHeaders[operand_0] + '"]' + operator + '(filtered_df["' + dataHeaders[operand_1] + '"]+1)')
@@ -95,6 +105,7 @@ def display_animated_graph(operand_0, operator, operand_1, range, day, hour):
         filtered_df['result']=-1
 
     filtered_df_1 = filtered_df[(filtered_df['result']<= filtered_df['result'].max()*dfRange[1]) & (filtered_df['result']>= filtered_df['result'].max()*dfRange[0])]
+
 
     dfMax = filtered_df['result'].max()*dfRange[1]
     dfMin = filtered_df['result'].max()*dfRange[0]
@@ -117,6 +128,7 @@ def display_animated_graph(operand_0, operator, operand_1, range, day, hour):
     bottom ='{:0.2f}'.format(dfMin * dfRange[0])
 
     tic = time.perf_counter()
+
     fig = px.choropleth(
         filtered_df, geojson=counties,
         locations='fips',
@@ -125,6 +137,7 @@ def display_animated_graph(operand_0, operator, operand_1, range, day, hour):
         color_continuous_scale=getColor(operand_0,operand_1),
         scope="usa",
         )
+
     toc = time.perf_counter()
 
     data_table=updateDataTable(filtered_df,operation[operator])
@@ -141,6 +154,7 @@ def display_animated_graph(operand_0, operator, operand_1, range, day, hour):
         nticks=1,
         tick0=dfMin
     ))
+#    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
     #print('dtick ' + str(dfMax-dfMin) + "  tick0 " + str(dfMax))
 

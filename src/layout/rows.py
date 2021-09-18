@@ -129,14 +129,15 @@ def info_row(row, size):
                     children=None
                 ),
 
-                dbc.Popover
-                (
-                    popover_content(row),
-                    id="pop-" + row,
-                    target="info-" + row ,
-                    trigger="hover",
-                    className="pop-info"
-                ),
+                popover(row),
+                # dbc.Popover
+                # (
+                #     popover_content(row),
+                #     id="pop-" + row,
+                #     target="info-" + row ,
+                #     trigger="hover",
+                #     className="pop-info"
+                # ),
 
                 detailRow
 
