@@ -43,23 +43,9 @@ dbc.Container\
      row_3,
      row_4,
      row_5,
-     #modal
 ])
 
 
-
-
-
-
-# @app.callback(
-#     Output("modal-centered", "is_open"),
-#     [Input("open-centered", "n_clicks"), Input("close-centered", "n_clicks")],
-#     [State("modal-centered", "is_open")],
-# )
-# def toggle_modal(n1, n2, is_open):
-#     if n1 or n2:
-#         return not is_open
-#     return is_open
 
 #================ good bad & ugly ====================
 @app.callback(
@@ -156,7 +142,7 @@ def display_animated_graph(operand_0, operator, operand_1, range, day, hour):
         tick0=dfMin
     ))
 
-    print('dtick ' + str(dfMax-dfMin) + "  tick0 " + str(dfMax))
+    #print('dtick ' + str(dfMax-dfMin) + "  tick0 " + str(dfMax))
 
     print(f"Completed update function in {toc - tic:0.4f} seconds")
 

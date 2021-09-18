@@ -104,6 +104,7 @@ def popover_content(row):
             dbc.ListGroupItemText(generalInfo['body'][row]["p1"]),
             dbc.ListGroupItemText(generalInfo['body'][row]["p2"]),
             dbc.ListGroupItemText(generalInfo['body'][row]["p3"]),
+            dbc.ListGroupItemText(generalInfo['body'][row]["p4"]),
             # dbc.ListGroupItemText(theToolTip(row)),
             # theModal(row)
         ]),

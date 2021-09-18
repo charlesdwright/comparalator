@@ -15,8 +15,8 @@ background-color: white
 
 .modalBody{
 
-font-size: 17px
-
+font-size: 17px;
+text-align: justify;
 }
 
 /* .div-graph {

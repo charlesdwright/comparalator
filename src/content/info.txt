@@ -1,7 +1,7 @@
 {
   "headers":
     {
-      "row-1":"What's a Compar-a-lator (and why did we build it)?",
+      "row-1":"What does POTUS 2020 Compar-A-Lator reveal?",
       "row-2":"Choose your input and comparison type.",
       "row-3":"You can filter the results!",
       "row-4":"Choose day and hour window.",
@@ -11,29 +11,34 @@
 
   "body":
     {
-      "row-1":{"p1": "...it's a calculator for comparing things; in this case, the ballots recorded for each of the two 2020 US Presidential candidates.",
-                "p2":"We built this little tool to enable people to follow their curiosity about the election by comparing results in a variety of ways.",
-                "p3":"For a little more detail, with an example, click that little blue '?' below."
+      "row-1":{"p1":"Over 200,000 ballots from a ‘homeless encampment’ in the Northeast!",
+                "p2":"A half-dozen “pop-up” districts for which no mapping data exists (yet - we are solving that problem) and all of which heavily favored the same candidate (229,052 to 13,300 or 17.22:1)",
+                "p3":"Four districts where absentee votes for one candidate exceeded 10 times those of the other.",
+                "p4":"See how your favorite stacks up!  For a little more detail, with an example, click that little blue '?' below."
                 },
       "row-2":{"p1":"Comparisons are based upon precinct, identified by a 'FIPS' designator.",
               "p2":"If you want to see a simple total of votes for both candidates in each precinct, choose 'Biden' '+' 'Trump' and the math will be done for you.",
-              "p3":"A note about subtraction: 'Biden - Trump' will return the difference only in precincts where Biden votes exceeded Trump votes. Simply swap the candidates around to see the opposite case."
+              "p3":"A note about subtraction: 'Biden - Trump' will return the difference only in precincts where Biden votes exceeded Trump votes. Simply swap the candidates around to see the opposite case.",
+              "p4":""
               },
       "row-3":{"p1":"Use the slider to filter results by upper and lower thresholds.  Colorscale will automatically realign with the new range.",
               "p2":"",
-              "p3":""
+              "p3":"",
+              "p4":""
               },
       "row-4":{"p1":"See how the results changed over the days following Nov 3, 2020 (because in some places, they did).",
               "p2":"Note the NYT dataset began reporting election results early on Nov 4, 2020.",
-              "p3":""
+              "p3":"",
+              "p4":""
               },
       "row-5":{"p1":"Your results appear along with the underlying data.  Note that you can filter these results.",
               "p2":"Be aware of the 'case sensitivity' toggle.' This uses Dash's filtering syntax which is intuitive enough but if you need details see here: https://dash.plotly.com/datatable/filtering.",
-              "p3":""
+              "p3":"",
+              "p4":""
               },
       "modal-1":{"p1":"Curious about the impact of mail-in ballots on the election results, we obtained the NYT Election Results dataset and set about calculating the ratio of absentee votes for Biden/Trump to absentee votes for Trump.",
                   "p2":"The results of that early work are shown below.",
-                  "p3":"We found the results to be interesting, so we built the Compar-A-Lator to simplify the process of discovering other relationships in the results.",
+                  "p3":"We found the results to be interesting, so we built the Compar-A-Lator to simplify the process of discovering such relationships in the results.",
                   "p4":"It's our hope that this tool inspires others to examine the data more closely.",
                 }
 
