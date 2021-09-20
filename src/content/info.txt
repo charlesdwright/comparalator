@@ -1,7 +1,7 @@
 {
   "headers":
     {
-      "row-1":"What does POTUS 2020 Compar-A-Lator reveal?",
+      "row-1":"What's a 'Compar-A-Lator'?",
       "row-2":"Choose your input and comparison type.",
       "row-3":"You can filter the results!",
       "row-4":"Choose day and hour window.",
@@ -11,10 +11,10 @@
 
   "body":
     {
-      "row-1":{"p1":"Over 200,000 ballots from a ‘homeless encampment’ in the Northeast!",
-                "p2":"Nearly 250,000 ballots from “pop-up” districts for which no mapping data exists (yet - we are solving that problem)",
-                "p3":"Four districts where absentee votes for one candidate exceeded 10 times those of the other.",
-                "p4":"See how your favorite stacks up!  For a little more detail, with an example, click that little blue '?' below."
+      "row-1":{"p1":"It's a calculator for comparing things, in this case 2020 POTUS Election results for each of the two main candidates.",
+                "p4":"",
+                "p2":"Four districts where absentee votes for one candidate exceeded 10 times those of the other.",
+                "p3":"See how your favorite stacks up!  For a little more detail, with an example, click that little blue '?' below."
                 },
       "row-2":{"p1":"Comparisons are based upon precinct, identified by a 'FIPS' designator.",
               "p2":"If you want to see a simple total of votes for both candidates in each precinct, choose 'Biden' '+' 'Trump' and the math will be done for you.",

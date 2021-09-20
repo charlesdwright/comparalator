@@ -123,22 +123,13 @@ def info_row(row, size):
             ([
                 html.I
                 (
-                    className="fa fa-info-circle fa-" + size + " fa-3dicon",#classname,
+                    className="fa fa-info-circle fa-" + size,#classname,
                     id="info-" + row,#idd,
                     **{'aria-hidden': 'true'},
                     children=None
                 ),
 
                 popover(row),
-                # dbc.Popover
-                # (
-                #     popover_content(row),
-                #     id="pop-" + row,
-                #     target="info-" + row ,
-                #     trigger="hover",
-                #     className="pop-info"
-                # ),
-
                 detailRow
 
             ])

@@ -101,15 +101,77 @@ def popover(row):
 
 #put this on a card or ?
 def popover_content(row):
+    i=row.split("-")[1]
+    theBody='pop_body_row_' + i
+
+    # popBody=[]
+    # for key in generalInfo['body'][row]:
+    #     popBody.append(dbc.ListGroupItemText(generalInfo['body'][row][key]))
+
+    print(row + "  " + str(theBody))
     return [
         dbc.PopoverHeader(generalInfo['headers'][row]),
-        #blah(),
-        dbc.PopoverBody([
-            dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p1"])),
-            dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p2"])),
-            dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p3"])),
-            dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p4"])),
-            # dbc.ListGroupItemText(theToolTip(row)),
-            # theModal(row)
-        ]),
+#        dbc.PopoverBody(popBody)
+        eval(theBody)
+        #popover_body_row_1
+        # dbc.PopoverBody([
+        #     dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p1"])),
+        #     dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p2"])),
+        #     dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p3"])),
+        #     dbc.ListGroupItemText(html.Li(generalInfo['body'][row]["p4"])),
+        #     # dbc.ListGroupItemText(theToolTip(row)),
+        #     # theModal(row)
+        # ]),
     ]
+
+
+pop_body_row_1 = dbc.PopoverBody([
+    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-1"]["p1"])),
+    # dbc.ListGroupItemText(generalInfo['body']["row-1"]["p2"])),
+    dbc.ListGroupItemText(
+        html.Li([
+            "For a little more detail, with an example, click that little blue",
+        html.I
+        (
+            className="fa fa-question-circle fa-sm",
+            id="pop-row_1",
+            **{'aria-hidden': 'true'},
+            children=None
+        ),
+        "."
+        ]),
+        )
+
+    #dbc.ListGroupItemText(html.Li(generalInfo['body']["row-1"]["p3"])),
+#    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-1"]["p4"]))
+])
+pop_body_row_2 = dbc.PopoverBody([
+    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-2"]["p1"])),
+    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-2"]["p2"])),
+    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-2"]["p3"])),
+#    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-2"]["p4"]))
+])
+pop_body_row_3 = dbc.PopoverBody([
+    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-3"]["p1"])),
+#    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-3"]["p2"])),
+#    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-3"]["p3"])),
+#    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-3"]["p4"]))
+])
+pop_body_row_4 = dbc.PopoverBody([
+    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-4"]["p1"])),
+    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-4"]["p2"])),
+#    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-4"]["p3"])),
+#    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-4"]["p4"]))
+])
+pop_body_row_5 = dbc.PopoverBody([
+    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-5"]["p1"])),
+    dbc.ListGroupItemText(
+        html.Li([
+            "Be aware of the 'case sensitivity' toggle.' This uses Dash's filtering syntax which is intuitive enough but if you need details see",
+            html.A(' here.',href='https://dash.plotly.com/datatable/filtering')
+        ]),
+        )
+#    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-5"]["p2"])),
+#    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-5"]["p3"])),
+#    dbc.ListGroupItemText(html.Li(generalInfo['body']["row-5"]["p4"]))
+])

@@ -57,11 +57,11 @@ def getColor(operand_0,operand_1):
         print(operand_0 + "  " + operand_1)
 
         if (operand_0 in operand_1) or (operand_1 in operand_0):
-            if ('trump' in operand_0): color="PuBu"
-            else: color="PuRd"
+            if ('trump' in operand_0): color="PuRd"
+            else: color="PuBu"
         else: #mixed
-            if ('trump' in operand_0): color="PuBu" #"RdBu"
-            else: color="PuRd"# "balance" colorscale #"oxy_r" #
+            if ('trump' in operand_0): color="PuRd" #"RdBu"
+            else: color="PuBu"# "balance" colorscale #"oxy_r" #
     except:
         pass
 
