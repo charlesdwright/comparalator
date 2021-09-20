@@ -360,8 +360,13 @@ content_row_5 = dbc.Row ([
                                         ,columns=[]
                                         ,data=[]
                                         ,merge_duplicate_headers=True
+                                        ,style_table={'overflowX': 'auto'}
                                         ,style_data={'overflow': 'hidden'}
-                                        ,style_header={'textAlign': 'center'}
+                                        ,style_header=
+                                        {'textAlign': 'center'
+                                         ,'whiteSpace': 'normal'
+                                         ,'height': 'auto'
+                                        }
                                         ,style_cell=
                                         {
                                             'textAlign': 'right'
